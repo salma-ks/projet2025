@@ -9,8 +9,8 @@
 <body>
   <!-- Header and navigation -->
   <header>
-  <div class="header-content">
-    <div class="logo">
+    <div class="header-content">
+      <div class="logo">
         <img src=".//6_image_of_efm-removebg-preview.png" class="img-logo">
       </div>
       <div class="header-text">
@@ -25,7 +25,7 @@
       <a href="#gallery"><i class="fas fa-images"></i> معرض الصور</a>
       <a href="#contact"><i class="fas fa-envelope"></i> تواصل</a>
       <a href="main.html"><i class="fas fa-comments"></i> الدردشة المباشرة</a>
-      <a href="inscription.html"><i class="fas fa-user"></i> إنشاء حساب</a>
+      <a href="sign.up.php"><i class="fas fa-user"></i> إنشاء حساب</a>
     </nav>
   </header>
   <!-- Slider -->
@@ -34,24 +34,24 @@
 
 
   <div class="slider">
-    <div class="slide active" style="background-image: url('');">
+    <div class="slide active" style="background-image: url('./first\ image\ of\ efm\ edit.png');">
       <div class="slide-content">
         <h2>تعاوننا يصنع الفرق</h2>
         <p>نعمل معًا لتحقيق أهداف إنسانية نبيلة وخدمة المجتمع</p>
         <a href="#activities" class="slide-btn">اكتشف أنشطتنا</a>
       </div>
     </div>
-    <div class="slide" style="background-image: url('');">
+    <div class="slide" style="background-image: url('./second\ image\ efm\ edit.png');">
       <div class="slide-content">
         <h2>تضامن يبني المستقبل</h2>
         <p>شراكات استراتيجية بين الجمعيات لتحقيق التنمية المستدامة</p>
         <a href="#contact" class="slide-btn">انضم إلينا</a>
       </div>
     </div>
-    <div class="slide" style="background-image: url('');">
+    <div class="slide" style="background-image: url('./third\ image\ efm\ edit.png');">
       <div class="slide-content">
         <h2>إنجازات تستحق الفخر</h2>
-        <p>أكثر من 100 مشروع خيري تم تنفيذها بالتعاون بين أعضاء الاتحاد</p>
+        <p>أكثر من 100 مشروع  تم تنفيذه بالتعاون بين أعضاء الاتحاد</p>
         <a href="#gallery" class="slide-btn btn-3d btn-3d-green">شاهد إنجازاتنا</a>
       </div>
     </div>
@@ -99,25 +99,17 @@
         <div class="gallery">
           <p>الأنشطة الحديثة</p>
           <figure class="card">
-            <img src="./7 image of efm.png" alt="img1">
+            <img src="./activitei 1.jfif" alt="img1">
           </figure>
           <figure class="card">
-            <img src="./7 image of efm.png" alt="img2">
+            <img src="./activiter2.jfif" alt="img2">
+          </figure>
+                    <figure class="card">
+            <img src="./activiter3.jfif" alt="img3">
           </figure>
           <figure class="card">
-            <img src="./7 image of efm.png" alt="img1">
+            <img src="./activiter4.jfif" alt="img4">
           </figure>
-          <figure class="card">
-            <img src="./7 image of efm.png" alt="img2">
-          </figure>
-          <p>الأنشطة الحديثة</p>
-          <figure class="card">
-            <img src="./7 image of efm.png" alt="img1">
-          </figure>
-          <figure class="card">
-            <img src="./7 image of efm.png" alt="img2">
-          </figure>
-          
         </div>
       </div>
       <!-- Gallery Section -->
@@ -163,21 +155,6 @@
               </div>
                             <!-- Contact Section -->
 
-
-
-
-                            <div class="box" id="contact">
-                                <h2 class="section-title">تواصل معنا</h2>
-                                <form onsubmit="openChat(event)">
-                                  <label>اسم الجمعية:</label>
-                                  <input type="text" placeholder="اسم الجمعية">
-                                  <label>البريد الإلكتروني:</label>
-                                  <input type="email" placeholder="بريد الجمعية الإلكتروني">
-                                  <label>الرسالة:</label>
-                                  <textarea rows="5" placeholder="اكتب رسالتك هنا..."></textarea>
-                                  <button type="submit">إرسال</button>
-                                </form>
-                              </div>
                                             <!-- Login Section -->
 
 
