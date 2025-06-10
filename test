@@ -1,0 +1,482 @@
+/*==============================================================*/
+/* Nom de SGBD :  SAP SQL Anywhere 17                           */
+/* Date de création :  03/06/2025 12:55:03                      */
+/*==============================================================*/
+
+
+if exists(select 1 from sys.sysforeignkey where role='FK_ACTIVITE_POST_LES_ACTI') then
+    alter table ACTIVITER_IMAGE
+       delete foreign key FK_ACTIVITE_POST_LES_ACTI
+end if;
+
+if exists(select 1 from sys.sysforeignkey where role='FK_AIDER_AIDER_BENEVOLE') then
+    alter table AIDER
+       delete foreign key FK_AIDER_AIDER_BENEVOLE
+end if;
+
+if exists(select 1 from sys.sysforeignkey where role='FK_AIDER_AIDER2_LES_ACTI') then
+    alter table AIDER
+       delete foreign key FK_AIDER_AIDER2_LES_ACTI
+end if;
+
+if exists(select 1 from sys.sysforeignkey where role='FK_COMMENTA_COMMENTAI_LES_MEMB') then
+    alter table COMMENTAIRE
+       delete foreign key FK_COMMENTA_COMMENTAI_LES_MEMB
+end if;
+
+if exists(select 1 from sys.sysforeignkey where role='FK_COMMENTA_COMMENTAI_LES_ACTI') then
+    alter table COMMENTAIRE
+       delete foreign key FK_COMMENTA_COMMENTAI_LES_ACTI
+end if;
+
+if exists(select 1 from sys.sysforeignkey where role='FK_COMMENTE_COMMENTER_BENEVOLE') then
+    alter table COMMENTER
+       delete foreign key FK_COMMENTE_COMMENTER_BENEVOLE
+end if;
+
+if exists(select 1 from sys.sysforeignkey where role='FK_COMMENTE_COMMENTER_LES_ACTI') then
+    alter table COMMENTER
+       delete foreign key FK_COMMENTE_COMMENTER_LES_ACTI
+end if;
+
+if exists(select 1 from sys.sysforeignkey where role='FK_FAIRE_PA_FAIRE_PAR_LES_MEMB') then
+    alter table FAIRE_PARTIE
+       delete foreign key FK_FAIRE_PA_FAIRE_PAR_LES_MEMB
+end if;
+
+if exists(select 1 from sys.sysforeignkey where role='FK_FAIRE_PA_FAIRE_PAR_LES_ASSO') then
+    alter table FAIRE_PARTIE
+       delete foreign key FK_FAIRE_PA_FAIRE_PAR_LES_ASSO
+end if;
+
+if exists(select 1 from sys.sysforeignkey where role='FK_LES_ACTI_AJOUTER_A_LES_MEMB') then
+    alter table LES_ACTIVIES
+       delete foreign key FK_LES_ACTI_AJOUTER_A_LES_MEMB
+end if;
+
+if exists(select 1 from sys.sysforeignkey where role='FK_MESSAGER_MESSAGER2_LES_MEMB') then
+    alter table MESSAGER
+       delete foreign key FK_MESSAGER_MESSAGER2_LES_MEMB
+end if;
+
+if exists(select 1 from sys.sysforeignkey where role='FK_MESSAGER_NOTIFIER_LES_MEMB') then
+    alter table MESSAGER
+       delete foreign key FK_MESSAGER_NOTIFIER_LES_MEMB
+end if;
+
+drop index if exists ACTIVITER_IMAGE.POST_FK;
+
+drop index if exists ACTIVITER_IMAGE.ACTIVITER_IMAGE_PK;
+
+drop table if exists ACTIVITER_IMAGE;
+
+drop index if exists AIDER.AIDER_FK;
+
+drop index if exists AIDER.AIDER2_FK;
+
+drop index if exists AIDER.AIDER_PK;
+
+drop table if exists AIDER;
+
+drop index if exists BENEVOLE.BENEVOLE_PK;
+
+drop table if exists BENEVOLE;
+
+drop index if exists COMMENTAIRE.COMMENTAIRE_FK;
+
+drop index if exists COMMENTAIRE.COMMENTAIRE2_FK;
+
+drop index if exists COMMENTAIRE.COMMENTAIRE_PK;
+
+drop table if exists COMMENTAIRE;
+
+drop index if exists COMMENTER.COMMENTER_FK;
+
+drop index if exists COMMENTER.COMMENTER2_FK;
+
+drop index if exists COMMENTER.COMMENTER_PK;
+
+drop table if exists COMMENTER;
+
+drop index if exists FAIRE_PARTIE.FAIRE_PARTIE_FK;
+
+drop index if exists FAIRE_PARTIE.FAIRE_PARTIE2_FK;
+
+drop index if exists FAIRE_PARTIE.FAIRE_PARTIE_PK;
+
+drop table if exists FAIRE_PARTIE;
+
+drop index if exists LES_ACTIVIES.AJOUTER_ACTIVITER_FK;
+
+drop index if exists LES_ACTIVIES.LES_ACTIVIES_PK;
+
+drop table if exists LES_ACTIVIES;
+
+drop index if exists LES_ASSOCIATIONS.LES_ASSOCIATIONS_PK;
+
+drop table if exists LES_ASSOCIATIONS;
+
+drop index if exists LES_MEMBRES.LES_MEMBRES_PK;
+
+drop table if exists LES_MEMBRES;
+
+drop index if exists MESSAGER.ENVOYER_MESSAGES_FK;
+
+drop index if exists MESSAGER.ENVOYER_MESSAGES2_FK;
+
+drop index if exists MESSAGER.ENVOYER_MESSAGES_PK;
+
+drop table if exists MESSAGER;
+
+/*==============================================================*/
+/* Table : ACTIVITER_IMAGE                                      */
+/*==============================================================*/
+create or replace table ACTIVITER_IMAGE 
+(
+   ID_ACTIVITER_IMAGE   integer                        not null,
+   ID_ACTIVITES         integer                        not null,
+   URL_IMAGE            long varchar                   null,
+   "DATE"               timestamp                      null,
+   constraint PK_ACTIVITER_IMAGE primary key clustered (ID_ACTIVITER_IMAGE)
+);
+
+/*==============================================================*/
+/* Index : ACTIVITER_IMAGE_PK                                   */
+/*==============================================================*/
+create unique clustered index ACTIVITER_IMAGE_PK on ACTIVITER_IMAGE (
+ID_ACTIVITER_IMAGE ASC
+);
+
+/*==============================================================*/
+/* Index : POST_FK                                              */
+/*==============================================================*/
+create index POST_FK on ACTIVITER_IMAGE (
+ID_ACTIVITES ASC
+);
+
+/*==============================================================*/
+/* Table : AIDER                                                */
+/*==============================================================*/
+create or replace table AIDER 
+(
+   ID_ACTIVITES         integer                        not null,
+   ID_BENEVOL           integer                        not null,
+   constraint PK_AIDER primary key clustered (ID_ACTIVITES, ID_BENEVOL)
+);
+
+/*==============================================================*/
+/* Index : AIDER_PK                                             */
+/*==============================================================*/
+create unique clustered index AIDER_PK on AIDER (
+ID_ACTIVITES ASC,
+ID_BENEVOL ASC
+);
+
+/*==============================================================*/
+/* Index : AIDER2_FK                                            */
+/*==============================================================*/
+create index AIDER2_FK on AIDER (
+ID_ACTIVITES ASC
+);
+
+/*==============================================================*/
+/* Index : AIDER_FK                                             */
+/*==============================================================*/
+create index AIDER_FK on AIDER (
+ID_BENEVOL ASC
+);
+
+/*==============================================================*/
+/* Table : BENEVOLE                                             */
+/*==============================================================*/
+create or replace table BENEVOLE 
+(
+   ID_BENEVOL           integer                        not null,
+   NOM                  long varchar                   null,
+   EMAIL                long varchar                   null,
+   PHONE_NUMBER         numeric                        null,
+   MOT_DE_PASSE         long varchar                   null,
+   "DATE"               timestamp                      null,
+   ADRESS               long varchar                   null,
+   constraint PK_BENEVOLE primary key clustered (ID_BENEVOL)
+);
+
+/*==============================================================*/
+/* Index : BENEVOLE_PK                                          */
+/*==============================================================*/
+create unique clustered index BENEVOLE_PK on BENEVOLE (
+ID_BENEVOL ASC
+);
+
+/*==============================================================*/
+/* Table : COMMENTAIRE                                          */
+/*==============================================================*/
+create or replace table COMMENTAIRE 
+(
+   ID_ACTIVITES         integer                        not null,
+   ID_MEMBERS           integer                        not null,
+   constraint PK_COMMENTAIRE primary key clustered (ID_ACTIVITES, ID_MEMBERS)
+);
+
+/*==============================================================*/
+/* Index : COMMENTAIRE_PK                                       */
+/*==============================================================*/
+create unique clustered index COMMENTAIRE_PK on COMMENTAIRE (
+ID_ACTIVITES ASC,
+ID_MEMBERS ASC
+);
+
+/*==============================================================*/
+/* Index : COMMENTAIRE2_FK                                      */
+/*==============================================================*/
+create index COMMENTAIRE2_FK on COMMENTAIRE (
+ID_ACTIVITES ASC
+);
+
+/*==============================================================*/
+/* Index : COMMENTAIRE_FK                                       */
+/*==============================================================*/
+create index COMMENTAIRE_FK on COMMENTAIRE (
+ID_MEMBERS ASC
+);
+
+/*==============================================================*/
+/* Table : COMMENTER                                            */
+/*==============================================================*/
+create or replace table COMMENTER 
+(
+   ID_ACTIVITES         integer                        not null,
+   ID_BENEVOL           integer                        not null,
+   constraint PK_COMMENTER primary key clustered (ID_ACTIVITES, ID_BENEVOL)
+);
+
+/*==============================================================*/
+/* Index : COMMENTER_PK                                         */
+/*==============================================================*/
+create unique clustered index COMMENTER_PK on COMMENTER (
+ID_ACTIVITES ASC,
+ID_BENEVOL ASC
+);
+
+/*==============================================================*/
+/* Index : COMMENTER2_FK                                        */
+/*==============================================================*/
+create index COMMENTER2_FK on COMMENTER (
+ID_ACTIVITES ASC
+);
+
+/*==============================================================*/
+/* Index : COMMENTER_FK                                         */
+/*==============================================================*/
+create index COMMENTER_FK on COMMENTER (
+ID_BENEVOL ASC
+);
+
+/*==============================================================*/
+/* Table : FAIRE_PARTIE                                         */
+/*==============================================================*/
+create or replace table FAIRE_PARTIE 
+(
+   ID_ASSOCIATION       integer                        not null,
+   ID_MEMBERS           integer                        not null,
+   constraint PK_FAIRE_PARTIE primary key clustered (ID_ASSOCIATION, ID_MEMBERS)
+);
+
+/*==============================================================*/
+/* Index : FAIRE_PARTIE_PK                                      */
+/*==============================================================*/
+create unique clustered index FAIRE_PARTIE_PK on FAIRE_PARTIE (
+ID_ASSOCIATION ASC,
+ID_MEMBERS ASC
+);
+
+/*==============================================================*/
+/* Index : FAIRE_PARTIE2_FK                                     */
+/*==============================================================*/
+create index FAIRE_PARTIE2_FK on FAIRE_PARTIE (
+ID_ASSOCIATION ASC
+);
+
+/*==============================================================*/
+/* Index : FAIRE_PARTIE_FK                                      */
+/*==============================================================*/
+create index FAIRE_PARTIE_FK on FAIRE_PARTIE (
+ID_MEMBERS ASC
+);
+
+/*==============================================================*/
+/* Table : LES_ACTIVIES                                         */
+/*==============================================================*/
+create or replace table LES_ACTIVIES 
+(
+   ID_ACTIVITES         integer                        not null,
+   ID_MEMBERS           integer                        not null,
+   OBJECT               long varchar                   null,
+   CONTENU              long varchar                   null,
+   "DATE"               timestamp                      null,
+   constraint PK_LES_ACTIVIES primary key clustered (ID_ACTIVITES)
+);
+
+/*==============================================================*/
+/* Index : LES_ACTIVIES_PK                                      */
+/*==============================================================*/
+create unique clustered index LES_ACTIVIES_PK on LES_ACTIVIES (
+ID_ACTIVITES ASC
+);
+
+/*==============================================================*/
+/* Index : AJOUTER_ACTIVITER_FK                                 */
+/*==============================================================*/
+create index AJOUTER_ACTIVITER_FK on LES_ACTIVIES (
+ID_MEMBERS ASC
+);
+
+/*==============================================================*/
+/* Table : LES_ASSOCIATIONS                                     */
+/*==============================================================*/
+create or replace table LES_ASSOCIATIONS 
+(
+   ID_ASSOCIATION       integer                        not null,
+   NOM                  long varchar                   null,
+   EMAIL                long varchar                   null,
+   MOT_DE_PASSE         long varchar                   null,
+   PHONE_NUMBER         numeric                        null,
+   "DATE"               timestamp                      null,
+   ADRESS               long varchar                   null,
+   constraint PK_LES_ASSOCIATIONS primary key clustered (ID_ASSOCIATION)
+);
+
+/*==============================================================*/
+/* Index : LES_ASSOCIATIONS_PK                                  */
+/*==============================================================*/
+create unique clustered index LES_ASSOCIATIONS_PK on LES_ASSOCIATIONS (
+ID_ASSOCIATION ASC
+);
+
+/*==============================================================*/
+/* Table : LES_MEMBRES                                          */
+/*==============================================================*/
+create or replace table LES_MEMBRES 
+(
+   ID_MEMBERS           integer                        not null,
+   NOM                  long varchar                   null,
+   PHONE_NUMBER         numeric                        null,
+   EMAIL                long varchar                   null,
+   MOT_DE_PASSE         long varchar                   null,
+   "DATE"               timestamp                      null,
+   TYPE_MEMBERS         smallint                       null,
+   ADRESS               long varchar                   null,
+   constraint PK_LES_MEMBRES primary key clustered (ID_MEMBERS)
+);
+
+/*==============================================================*/
+/* Index : LES_MEMBRES_PK                                       */
+/*==============================================================*/
+create unique clustered index LES_MEMBRES_PK on LES_MEMBRES (
+ID_MEMBERS ASC
+);
+
+/*==============================================================*/
+/* Table : MESSAGER                                             */
+/*==============================================================*/
+create or replace table MESSAGER 
+(
+   ID_MEMBERS           integer                        not null,
+   LES_ID_MEMBERS       integer                        not null,
+   constraint PK_MESSAGER primary key clustered (ID_MEMBERS, LES_ID_MEMBERS)
+);
+
+/*==============================================================*/
+/* Index : ENVOYER_MESSAGES_PK                                  */
+/*==============================================================*/
+create unique clustered index ENVOYER_MESSAGES_PK on MESSAGER (
+ID_MEMBERS ASC,
+LES_ID_MEMBERS ASC
+);
+
+/*==============================================================*/
+/* Index : ENVOYER_MESSAGES2_FK                                 */
+/*==============================================================*/
+create index ENVOYER_MESSAGES2_FK on MESSAGER (
+ID_MEMBERS ASC
+);
+
+/*==============================================================*/
+/* Index : ENVOYER_MESSAGES_FK                                  */
+/*==============================================================*/
+create index ENVOYER_MESSAGES_FK on MESSAGER (
+LES_ID_MEMBERS ASC
+);
+
+alter table ACTIVITER_IMAGE
+   add constraint FK_ACTIVITE_POST_LES_ACTI foreign key (ID_ACTIVITES)
+      references LES_ACTIVIES (ID_ACTIVITES)
+      on update restrict
+      on delete restrict;
+
+alter table AIDER
+   add constraint FK_AIDER_AIDER_BENEVOLE foreign key (ID_BENEVOL)
+      references BENEVOLE (ID_BENEVOL)
+      on update restrict
+      on delete restrict;
+
+alter table AIDER
+   add constraint FK_AIDER_AIDER2_LES_ACTI foreign key (ID_ACTIVITES)
+      references LES_ACTIVIES (ID_ACTIVITES)
+      on update restrict
+      on delete restrict;
+
+alter table COMMENTAIRE
+   add constraint FK_COMMENTA_COMMENTAI_LES_MEMB foreign key (ID_MEMBERS)
+      references LES_MEMBRES (ID_MEMBERS)
+      on update restrict
+      on delete restrict;
+
+alter table COMMENTAIRE
+   add constraint FK_COMMENTA_COMMENTAI_LES_ACTI foreign key (ID_ACTIVITES)
+      references LES_ACTIVIES (ID_ACTIVITES)
+      on update restrict
+      on delete restrict;
+
+alter table COMMENTER
+   add constraint FK_COMMENTE_COMMENTER_BENEVOLE foreign key (ID_BENEVOL)
+      references BENEVOLE (ID_BENEVOL)
+      on update restrict
+      on delete restrict;
+
+alter table COMMENTER
+   add constraint FK_COMMENTE_COMMENTER_LES_ACTI foreign key (ID_ACTIVITES)
+      references LES_ACTIVIES (ID_ACTIVITES)
+      on update restrict
+      on delete restrict;
+
+alter table FAIRE_PARTIE
+   add constraint FK_FAIRE_PA_FAIRE_PAR_LES_MEMB foreign key (ID_MEMBERS)
+      references LES_MEMBRES (ID_MEMBERS)
+      on update restrict
+      on delete restrict;
+
+alter table FAIRE_PARTIE
+   add constraint FK_FAIRE_PA_FAIRE_PAR_LES_ASSO foreign key (ID_ASSOCIATION)
+      references LES_ASSOCIATIONS (ID_ASSOCIATION)
+      on update restrict
+      on delete restrict;
+
+alter table LES_ACTIVIES
+   add constraint FK_LES_ACTI_AJOUTER_A_LES_MEMB foreign key (ID_MEMBERS)
+      references LES_MEMBRES (ID_MEMBERS)
+      on update restrict
+      on delete restrict;
+
+alter table MESSAGER
+   add constraint FK_MESSAGER_MESSAGER2_LES_MEMB foreign key (ID_MEMBERS)
+      references LES_MEMBRES (ID_MEMBERS)
+      on update restrict
+      on delete restrict;
+
+alter table MESSAGER
+   add constraint FK_MESSAGER_NOTIFIER_LES_MEMB foreign key (LES_ID_MEMBERS)
+      references LES_MEMBRES (ID_MEMBERS)
+      on update restrict
+      on delete restrict;
+

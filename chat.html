@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>اتحاد الجمعيات</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #FBFBFB;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #034E88, #023053);
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      position: relative;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .img-logo {
+      width: 70px;
+      height: 70px;
+    }
+
+    .logo {
+      width: 70px;
+      height: 70px;
+      background-color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+      border: 3px solid #4EA54E;
+    }
+
+    .header-text {
+      text-align: right;
+    }
+
+    .header-text h1 {
+      margin: 0;
+      font-size: 28px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .header-text p {
+      margin: 5px 0 0;
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    nav {
+      background-color: rgba(0,0,0,0.2);
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      backdrop-filter: blur(5px);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      padding: 5px 10px;
+      border-radius: 4px;
+      position: relative;
+    }
+
+    nav a:hover {
+      background-color: rgba(255,255,255,0.1);
+    }
+
+    .container {
+      display: flex;
+      height: calc(100vh - 70px);
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: white;
+    }
+
+    .sidebar {
+      width: 280px;
+      background-color: #f8fafc;
+      border-left: 1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-header {
+      background-color: #1e40af;
+      color: white;
+      padding: 12px 16px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .sidebar-header-icon {
+      width: 24px;
+      height: 24px;
+      background-color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1e40af;
+      font-size: 14px;
+    }
+
+    .members-section {
+      padding: 20px 16px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #1e293b;
+    }
+
+    .member-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      font-size: 14px;
+      color: #475569;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .member-item:last-child {
+      border-bottom: none;
+    }
+
+    .member-icon {
+      width: 32px;
+      height: 32px;
+      background-color: #3b82f6;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 16px;
+    }
+
+    .chat-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 20px;
+      background-color: #f9fafb;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .message-bubble {
+      background-color: #1e40af;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 20px;
+      border-bottom-right-radius: 6px;
+      max-width: 70%;
+      align-self: flex-end;
+      margin-bottom: 12px;
+      font-size: 14px;
+      line-height: 1.4;
+      position: relative;
+    }
+
+    .received-message {
+      background-color: #e5e7eb;
+      color: #111827;
+      padding: 12px 18px;
+      border-radius: 20px;
+      border-bottom-left-radius: 6px;
+      max-width: 70%;
+      align-self: flex-start;
+      margin-bottom: 12px;
+      font-size: 14px;
+      line-height: 1.4;
+      position: relative;
+    }
+
+    .message-time {
+      font-size: 11px;
+      margin-top: 4px;
+    }
+
+    .message-bubble .message-time {
+      color: rgba(255, 255, 255, 0.8);
+      text-align: left;
+    }
+
+    .received-message .message-time {
+      color: rgba(17, 24, 39, 0.6);
+      text-align: right;
+    }
+
+    .input-container {
+      padding: 16px 20px;
+      background-color: white;
+      border-top: 1px solid #e5e7eb;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .input-wrapper {
+      flex: 1;
+      position: relative;
+    }
+
+    .message-input {
+      width: 100%;
+      padding: 12px 50px 12px 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 25px;
+      font-size: 14px;
+      outline: none;
+      background-color: #f9fafb;
+    }
+
+    .send-button {
+      position: absolute;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      background-color: #1e40af;
+      border: none;
+      border-radius: 50%;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .send-icon {
+      font-size: 16px;
+      transform: rotate(180deg);
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <img src=".//6_image_of_efm-removebg-preview.png" class="img-logo" />
+      </div>
+      <div class="header-text">
+        <h1>اتحاد الجمعيات</h1>
+        <p>نحو مجتمع متعاون ومتكافل</p>
+      </div>
+    </div>
+    <nav>
+      <a href="#about"><i class="fas fa-info-circle"></i> عن الاتحاد</a>
+      <a href="#activities"><i class="fas fa-tasks"></i> الأنشطة</a>
+      <a href="#gallery"><i class="fas fa-images"></i> معرض الصور</a>
+      <a href="chat.html"><i class="fas fa-comments"></i> الدردشة المباشرة</a>
+      <a href="sign.up.php"><i class="fas fa-user"></i> إنشاء حساب</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <span>اتحاد الجمعيات الخيرية <small style="color: #9ae69d;">Online</small></span>
+      </div>
+      <div class="members-section">
+        <h3 class="section-title">الأعضاء</h3>
+        <div class="member-item">
+          <span>المسؤول</span>
+        </div>
+        <div class="member-item">
+          <span>جمعية ...</span>
+        </div>
+        <div class="member-item">
+          <span>جمعية ...</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-area">
+      <div class="chat-messages" id="chatMessages">
+        <!-- Messages will appear here -->
+      </div>
+      <div class="input-container">
+        <div class="input-wrapper">
+          <input type="text" class="message-input" placeholder="اكتب رسالتك..." />
+          <button class="send-button">
+            <span class="send-icon">➤</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const messageInput = document.querySelector('.message-input');
+    const sendButton = document.querySelector('.send-button');
+    const chatMessages = document.querySelector('.chat-messages');
+
+    function getTime() {
+      const now = new Date();
+      return now.toLocaleTimeString('ar-SA', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      });
+    }
+
+    function addMessage(content, isUser = false) {
+      const messageDiv = document.createElement('div');
+      const time = `<div class="message-time">${getTime()}</div>`;
+      messageDiv.className = isUser ? 'message-bubble' : 'received-message';
+      messageDiv.innerHTML = `${content}${time}`;
+      chatMessages.appendChild(messageDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function sendMessage() {
+      const message = messageInput.value.trim();
+      if (message) {
+        addMessage(message, true);
+        messageInput.value = '';
+        setTimeout(() => {
+          addMessage('مرحباً شكراً لرسالتك معنا. سيتم الرد عليك قريباً.');
+        }, 1000);
+      }
+    }
+
+    sendButton.addEventListener('click', sendMessage);
+    messageInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    });
+  </script>
+</body>
+</html>

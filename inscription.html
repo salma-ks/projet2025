@@ -92,39 +92,6 @@
       margin-bottom: 20px;
     }
 
-    .radio-group {
-      background-color: #f8f9fa;
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
-    }
-
-    .radio-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 12px;
-      cursor: pointer;
-    }
-
-    .radio-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .radio-input {
-      margin-left: 10px;
-      margin-right: 0;
-      width: 18px;
-      height: 18px;
-      accent-color: #1e4a72;
-    }
-
-    .radio-label {
-      font-size: 14px;
-      color: #333;
-      cursor: pointer;
-    }
-
     .submit-btn {
       width: 100%;
       padding: 15px;
@@ -136,7 +103,7 @@
       font-weight: bold;
       cursor: pointer;
       transition: all 0.3s ease;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       font-family: 'Tahoma', 'Arial', sans-serif;
     }
 
@@ -194,12 +161,6 @@
     <form id="signupForm">
       <div class="form-row">
         <div class="form-group">
-          <input type="text" class="form-input" placeholder="اسم المستخدم" required>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-input" placeholder="رقم الهاتف" required>
-        </div>
-        <div class="form-group">
           <input type="email" class="form-input" placeholder="البريد الإلكتروني" required>
         </div>
       </div>
@@ -208,29 +169,9 @@
           <input type="password" class="form-input" placeholder="كلمة المرور" required>
         </div>
         <div class="form-group">
-          <input type="text" class="form-input" placeholder="العنوان" required>
-        </div>
-        <div class="form-group">
-          <!-- Empty space for balance -->
-        </div>
-      </div>
-      <div class="radio-group">
-        <div class="radio-item">
-          <input type="radio" id="volunteer" name="userType" value="volunteer" class="radio-input" checked>
-          <label for="volunteer" class="radio-label">متطوع</label>
-        </div>
-        <div class="radio-item">
-          <input type="radio" id="association_head" name="userType" value="association_head" class="radio-input">
-          <label for="association_head" class="radio-label">رئيس جمعية</label>
-        </div>
-        <div class="radio-item">
-          <input type="radio" id="association_member" name="userType" value="association_member" class="radio-input">
-          <label for="association_member" class="radio-label">عضو جمعية</label>
-        </div>
-      </div>
-      <button type="submit" class="submit-btn" >إنشاء حساب</button>
+      <button type="submit" class="submit-btn"> تسجيل الدخول</button>
       <div class="login-link">
-        هل لديك حساب بالفعل؟ <a href="inscription.html">تسجيل الدخول</a>
+        هل لديك حساب بالفعل؟ <a href="sign.up.php">إنشاء حساب </a>
       </div>
     </form>
   </div>

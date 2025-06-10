@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>اتحاد الجمعيات</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #FBFBFB;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #034E88, #023053);
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+      background-size: 50px 50px;
+      opacity: 0.3;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .img-logo {
+      width: 70px;
+      height: 70px;
+    }
+
+    .logo {
+      width: 70px;
+      height: 70px;
+      background-color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+      border: 3px solid #4EA54E;
+    }
+
+    .header-text {
+      text-align: right;
+    }
+
+    .header-text h1 {
+      margin: 0;
+      font-size: 28px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .header-text p {
+      margin: 5px 0 0;
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    nav {
+      background-color: rgba(0,0,0,0.2);
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      backdrop-filter: blur(5px);
+      position: relative;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      padding: 5px 10px;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 2px;
+      background-color: #fff;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+      right: auto;
+      left: 0;
+    }
+
+    nav a:hover {
+      color: #fff;
+      background-color: rgba(255,255,255,0.1);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .box {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #about {
+      min-height: 500px;
+    }
+
+    .box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .section-title {
+      font-size: 28px;
+      color: #034E88;
+      margin-bottom: 25px; /* Increased margin below title */
+      position: relative;
+      padding-right: 15px;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -10px;
+      width: 50px;
+      height: 3px;
+      background-color: #4EA54E;
+      transition: width 0.3s ease;
+    }
+
+    .box p {
+      margin-bottom: 20px; /* Added spacing between paragraphs */
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .box:hover .section-title::after {
+      width: 80px;
+    }
+
+    .author-info h4 {
+      margin: 0;
+      color: #034E88;
+    }
+
+    .author-info p {
+      margin: 5px 0 0;
+      font-size: 14px;
+      color: #666;
+    }
+
+    footer {
+      background-color: #034E88;
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+      width: 100%;
+    }
+
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    .footer-section {
+      flex: 1;
+      min-width: 250px;
+      margin-bottom: 20px;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-section p {
+      margin-bottom: 15px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      color: white;
+      margin-left: 10px;
+      font-size: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-5px);
+    }
+
+    .footer-bottom {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Header and navigation -->
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <img src="./6_image_of_efm-removebg-preview.png" class="img-logo">
+      </div>
+      <div class="header-text">
+        <h1>اتحاد الجمعيات</h1>
+        <p>نحو مجتمع متعاون ومتكافل</p>
+      </div>
+    </div>
+    <nav>
+      <a href="discrip.html">
+        <i class="fas fa-info-circle"></i> عن الاتحاد</a>
+      <a href="#activities"><i class="fas fa-tasks"></i> الأنشطة</a>
+      <a href="#gallery"><i class="fas fa-images"></i> معرض الصور</a>
+      <a href="#contact"><i class="fas fa-envelope"></i> تواصل</a>
+      <a href="main.html"><i class="fas fa-comments"></i> الدردشة المباشرة</a>
+      <a href="sign.up.php"><i class="fas fa-user"></i> إنشاء حساب</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- About Section -->
+    <div class="box" id="about">
+      <h2 class="section-title">عن الاتحاد</h2>
+      <p>يُعد اتحاد الجمعيات منصة رقمية تفاعلية تهدف إلى تنظيم وتنسيق جهود مجموعة من الجمعيات المدنية المستقلة، التي تشتغل في مجالات تنموية، ثقافية، بيئية، رياضية، وتربوية.</p>
+      <p>يعمل الاتحاد كحلقة وصل بين هذه الجمعيات وبين المتبرعين، دون أن يندرج تحت الإطار الخيري التقليدي، بل يركّز على دعم المشاريع المجتمعية الهادفة وتعزيز دور المجتمع المدني في التنمية المستدامة.</p>
+      <p>اتحاد الجمعيات هو فضاء مشترك يتيح للجمعيات:</p>
+      <p>تسجيل نفسها وعرض أنشطتها ومجالات تدخلها.</p>
+      <p>تبادل الخبرات والتجارب مع جمعيات أخرى داخل نفس المنصة.</p>
+      <p>وفي المقابل، يوفر للمتبرعين إمكانية:</p>
+      <p>اكتشاف المشاريع التي يمكنهم دعمها بسهولة.</p>
+      <p>تقديم مساهمات مادية أو غير مادية (مثل معدات، خدمات، أو وقت).</p>
+      <p>متابعة أثر مساهماتهم بشفافية من خلال تقارير الجمعيات.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>عن الاتحاد</h3>
+        <p>اتحاد الجمعيات هو مظلة تعاونية تهدف إلى تنسيق الجهود ورفع كفاءتها لخدمة المجتمع.</p>
+        <div class="social-links">
+          <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>روابط سريعة</h3>
+        <p><a href="#about" style="color: white; text-decoration: none;">عن الاتحاد</a></p>
+        <p><a href="#activities" style="color: white; text-decoration: none;">الأنشطة</a></p>
+        <p><a href="#gallery" style="color: white; text-decoration: none;">معرض الصور</a></p>
+        <p><a href="#contact" style="color: white; text-decoration: none;">تواصل معنا</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>معلومات الاتصال</h3>
+        <p><i class="fas fa-map-marker-alt"></i> place</p>
+        <p><i class="fas fa-phone"></i> number</p>
+        <p><i class="fas fa-envelope"></i> email</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 اتحاد الجمعيات . جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+</body>
+</html>
