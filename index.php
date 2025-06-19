@@ -73,13 +73,12 @@ header::before {
 }
 
 .header-text h1 {
-  margin: 0;
+  margin-top: 15px;
   font-size: 28px;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }
 
 .header-text p {
-  margin: 5px 0 0;
   font-size: 16px;
   opacity: 0.9;
 }
@@ -726,20 +725,20 @@ footer {
   <header>
     <div class="header-content">
       <div class="logo">
-        <img src=".//6_image_of_efm-removebg-preview.png" class="img-logo">
+        <img src="./6_image_of_efm-removebg-preview.png" class="img-logo">
       </div>
       <div class="header-text">
         <h1>اتحاد الجمعيات</h1>
-        <p>نحو مجتمع متعاون ومتكافل</p>
+        <p>نحو تنمية مستدامة وارتقاء بالعمل الجمعوي</p><br>
       </div>
     </div>
     <nav>
-      
-      <a href="#about"><i class="fas fa-info-circle"></i> عن الاتحاد</a>
-      <a href="#activities"><i class="fas fa-tasks"></i> الأنشطة</a>
-      <a href="#gallery"><i class="fas fa-images"></i> معرض الصور</a>
-      <a href="chat.html"><i class="fas fa-comments"></i> الدردشة المباشرة</a>
-      <a href="sign.up.php"><i class="fas fa-user"></i> إنشاء حساب</a>
+      <a href="index.php" ><i class="fas fa-house"></i> الرئيسية</a>
+      <a href="#about" ><i class="fas fa-info-circle"></i> عن الاتحاد</a>
+      <a href="#activities" ><i class="fas fa-tasks"></i> الأنشطة</a>
+      <a href="#gallery" ><i class="fas fa-images"></i> معرض الصور</a>
+      <a href="chat.php" ><i class="fas fa-comments"></i> الدردشة المباشرة</a>
+      <a href="sign.up.php" ><i class="fas fa-user"></i> إنشاء حساب</a>
     </nav>
   </header>
   <!-- Slider -->
@@ -747,7 +746,7 @@ footer {
     <div class="slide active" style="background-image: url('./first\ image\ of\ efm\ edit.png');">
       <div class="slide-content">
         <h2>تعاوننا يصنع الفرق</h2>
-        <p>نعمل معًا لتحقيق أهداف إنسانية نبيلة وخدمة المجتمع</p>
+        <p> نعمل معًا لخدمة المجتمع و تنسيق الجمعيات</p>
         <a href="#activities" class="slide-btn">اكتشف أنشطتنا</a>
       </div>
     </div>
@@ -755,7 +754,7 @@ footer {
       <div class="slide-content">
         <h2>تضامن يبني المستقبل</h2>
         <p>شراكات استراتيجية بين الجمعيات لتحقيق التنمية المستدامة</p>
-        <a href="#contact" class="slide-btn">انضم إلينا</a>
+        <a href="sign.up.php" class="slide-btn">انضم إلينا</a>
       </div>
     </div>
     <div class="slide" style="background-image: url('./third image edit.jpg');">
@@ -772,7 +771,7 @@ footer {
       <h2 class="section-title">عن الاتحاد</h2>
       <p>"اتحاد الجمعيات" هو منصة إلكترونية تهدف إلى تنظيم وتنسيق عمل مجموعة من الجمعيات المدنية غير الخيرية، التي تشتغل في مجالات تنموية واجتماعية متنوعة.
 </p>
-      <p>يوفر الموقع فضاءً موحدًا لعرض أنشطة ومشاريع الجمعيات، مع فتح المجال أمام المتبرعين – سواء كانوا أفرادًا أو مؤسسات – لدعم هذه المشاريع والمبادرات بما يعزز التنمية المجتمعية المستدامة.
+      <p>يوفر الموقع فضاءً موحدًا لعرض أنشطة ومشاريع الجمعيات، مع فتح المجال أمام المتطوعين – سواء كانوا أفرادًا أو مؤسسات – لدعم هذه المشاريع والمبادرات بما يعزز التنمية المجتمعية المستدامة.
 
 </p>
       <div style="text-align: center; margin-top: 20px;">
@@ -805,14 +804,13 @@ footer {
       <div class="box" id="activities">
         <h2 class="section-title">الأنشطة</h2>
         <div class="gallery">
-          <p>الأنشطة الحديثة</p>
           <figure class="card">
             <img src="./first act.png" alt="img1">
           </figure>
           <figure class="card">
-            <img src="./third act.png" alt="img2">
+            <img src="./2.png" alt="img2">
           </figure>
-                    <figure class="card">
+          <figure class="card">
             <img src="./third act.png" alt="img3">
           </figure>
           <figure class="card">
@@ -820,64 +818,46 @@ footer {
           </figure>
         </div>
       </div>
-      <div class="box" id="activities">
-        
-        <div class="gallery">
-          <p>الأنشطة السابقة</p>
-          <figure class="card">
-            <img src="./activitei 1.jfif" alt="img1">
-          </figure>
-          <figure class="card">
-            <img src="./activiter2.jfif" alt="img2">
-          </figure>
-                    <figure class="card">
-            <img src="./activiter3.jfif" alt="img3">
-          </figure>
-          <figure class="card">
-            <img src="./activiter4.jfif" alt="img4">
-          </figure>
-        </div>
-      </div>
       <!-- Gallery Section -->
       <div class="box" id="gallery">
       <h2 class="section-title">معرض الصور</h2>
-      <p>بعض اللحظات المميزة من أنشطة وفعاليات اتحاد الجمعيات</p>
+      <p>بعض اللحظات المميزة من مشاريع وفعاليات اتحاد الجمعيات</p>
       
       <div class="gallery">
         <div class="gallery-item">
-          <img src="" alt="فعالية خيرية" class="gallery-img">
+          <img src="./image1gallery.png" class="gallery-img">
           <div class="gallery-caption">
-            <h3>فعالية توزيع السلال الغذائية</h3>
-            <p>تم توزيع أكثر من 500 سلة غذائية على الأسر المحتاجة</p>
+            <h3>تنمية ذاتية</h3>
+            <p>تكوينات في التنمية الذاتية والمهارات الحياتية.</p>
           </div>
         </div>
         
         <div class="gallery-item">
-          <img src="" alt="ورشة عمل" class="gallery-img">
+          <img src="./image2gallery.png"  class="gallery-img">
           <div class="gallery-caption">
-            <h3></h3>
-            <p></p>
+            <h3>تبادل ثقافي</h3>
+            <p>فعاليات تروّج للتراث الثقافي المحلي.</p>
           </div>
         </div>
         
         <div class="gallery-item">
-          <img src="" alt="حفل تكريم" class="gallery-img">
+          <img src="./image3gallery.png" class="gallery-img">
           <div class="gallery-caption">
-            <h3></h3>
-            <p></p>
+           <h3>معرض فني</h3>
+           <p> إقامة معارض كتب وفنون تشكيلية.</p>
           </div>
         </div>
         
         <div class="gallery-item">
-          <img src="" alt="مشروع تعليمي" class="gallery-img">
+          <img src="./image4gallery.png"  class="gallery-img">
           <div class="gallery-caption">
-            <h3></h3>
-            <p></p>
+            <h3>دوري رياضي</h3>
+            <p>تنظيم دوريات كرة قدم أو ألعاب رياضية أخرى.</p>
           </div>
         </div>
       </div>
       <div style="text-align: center; margin-top: 20px;">
-        <a href="about.html" class="btn-3d">المزيد </a>
+        <a href="photo.gallery.php" class="btn-3d">المزيد </a>
       </div>
     </div>
   </div>
@@ -889,7 +869,7 @@ footer {
 
     <div class="person-container">
       <div class="person-image-container">
-        <img src="" class="person-image">
+        <img src="./profil3.png" class="person-image">
         <div class="person-comment">
         كلماتكم تعكس رؤيةً ملهمةً وقوة العمل الجماعي! بالفعل، الاتحاد والتنسيق هما سرّ تحويل الأحلام إلى إنجازات ملموسة. جمعية الأمل تحت قيادتكم أصبحت نموذجاً للعطاء والتأثير الإيجابي.        </div>
       </div>
@@ -901,7 +881,7 @@ footer {
 
     <div class="person-container">
       <div class="person-image-container">
-        <img src="" class="person-image">
+        <img src="./profil2.png" class="person-image">
         <div class="person-comment">
         من خلال الاتحاد، استطعنا تبادل الخبرات وتجنب تكرار الجهود. هذا التعاون وفر وقتنا ومواردنا
  ومكننا من خدمة المجتمع بشكل أكثر فعالية.                                                                   
@@ -915,7 +895,7 @@ footer {
 
     <div class="person-container">
       <div class="person-image-container">
-        <img src="./profil1.png"  class="person-image">
+        <img src="./profile1.png"  class="person-image">
         <div class="person-comment">
         التعاون من خلال اتحاد الجمعيات  مكننا من تنفيذ مشاريع كنا نحلم بها منذ سنوات.
  القوة في الاتحاد والتنسيق جعل أحلامنا واقعاً ملموساً.                                                  
@@ -952,13 +932,13 @@ footer {
                                 <p><a href="#about" style="color: white; text-decoration: none;">عن الاتحاد</a></p>
                                 <p><a href="#activities" style="color: white; text-decoration: none;">الأنشطة</a></p>
                                 <p><a href="#gallery" style="color: white; text-decoration: none;">معرض الصور</a></p>
-                                <p><a href="#contact" style="color: white; text-decoration: none;">تواصل معنا</a></p>
+                                
                               </div>
                               <div class="footer-section">
                                 <h3>معلومات الاتصال</h3>
-                                <p><i class="fas fa-map-marker-alt"></i> Place</p>
-                                <p><i class="fas fa-phone"></i> Number</p>
-                                <p><i class="fas fa-envelope"></i> Email</p>
+                                <p> SOLICOD-TANGIER  <i class="fas fa-map-marker-alt"></i></p>
+                                <p>02 1267 604 212+<i class="fas fa-phone"></i></p>
+                                <p> susalma881@gmail.com <i class="fas fa-envelope"></i></p>
                               </div>
                             </div>
                             <div class="footer-bottom">
@@ -999,7 +979,7 @@ footer {
         counters.forEach(counter => {
           const target = parseInt(counter.getAttribute('data-target'));
           let count = 0;
-          const step = Math.ceil(target / 100); // السرعة
+          const step = Math.ceil(target / 100); 
   
           const update = setInterval(() => {
             count += step;

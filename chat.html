@@ -3,283 +3,220 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>اتحاد الجمعيات</title>
+  <title>اتحاد الجمعيات - الدردشة</title>
   <style>
     * {
-      box-sizing: border-box;
-      padding: 0;
+      box-sizing: border-box; 
+      padding: 0; 
       margin: 0;
     }
-
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #FBFBFB;
-      color: #333;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      background-color: #FBFBFB; 
+      color: #333; 
       line-height: 1.6;
     }
-
     header {
-      background: linear-gradient(135deg, #034E88, #023053);
-      color: white;
-      padding: 15px 0;
-      text-align: center;
+      background: linear-gradient(135deg, #034E88, #023053); 
+      color: white; 
+      padding: 15px 0; 
+      text-align: center; 
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      position: relative;
     }
-
     .header-content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      max-width: 1100px;
-      margin: 0 auto;
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      gap: 20px; 
+      max-width: 1100px; 
+      margin: 0 auto; 
       padding: 0 20px;
     }
-
     .img-logo {
-      width: 70px;
+      width: 70px; 
       height: 70px;
     }
-
     .logo {
-      width: 70px;
-      height: 70px;
-      background-color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+      width: 70px; 
+      height: 70px; 
+      background-color: white; 
+      border-radius: 50%; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      box-shadow: 0 3px 6px rgba(0,0,0,0.16); 
       border: 3px solid #4EA54E;
     }
-
     .header-text {
       text-align: right;
     }
-
     .header-text h1 {
-      margin: 0;
-      font-size: 28px;
+      margin-top: 15px; 
+      font-size: 28px; 
       text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
     }
-
     .header-text p {
-      margin: 5px 0 0;
-      font-size: 16px;
+      font-size: 16px; 
       opacity: 0.9;
     }
-
     nav {
-      background-color: rgba(0,0,0,0.2);
-      padding: 12px;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
+      background-color: rgba(0,0,0,0.2); 
+      padding: 12px; 
+      display: flex; 
+      justify-content: center; 
+      gap: 30px; 
       backdrop-filter: blur(5px);
     }
-
     nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
-      transition: all 0.3s ease;
-      padding: 5px 10px;
+      color: #fff; 
+      text-decoration: none; 
+      font-weight: bold; 
+      font-size: 16px; 
+      transition: all 0.3s ease; 
+      padding: 5px 10px; 
       border-radius: 4px;
-      position: relative;
     }
-
-    nav a:hover {
+    nav .inactive:hover {
+      color: #fff; 
+      background-color: rgba(255,255,255,0.1);
+    }
+    nav .selected {
+      border-bottom:2px solid  #fff; 
       background-color: rgba(255,255,255,0.1);
     }
 
-    .container {
-      display: flex;
-      height: calc(100vh - 70px);
-      max-width: 1200px;
-      margin: 0 auto;
-      background-color: white;
-    }
-
-    .sidebar {
-      width: 280px;
-      background-color: #f8fafc;
-      border-left: 1px solid #e2e8f0;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .sidebar-header {
-      background-color: #1e40af;
-      color: white;
-      padding: 12px 16px;
-      text-align: center;
-      font-size: 14px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .sidebar-header-icon {
-      width: 24px;
-      height: 24px;
-      background-color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #1e40af;
-      font-size: 14px;
-    }
-
-    .members-section {
-      padding: 20px 16px;
-    }
-
-    .section-title {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 16px;
-      color: #1e293b;
-    }
-
-    .member-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 0;
-      font-size: 14px;
-      color: #475569;
-      border-bottom: 1px solid #f1f5f9;
-    }
-
-    .member-item:last-child {
-      border-bottom: none;
-    }
-
-    .member-icon {
-      width: 32px;
-      height: 32px;
-      background-color: #3b82f6;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 16px;
-    }
-
-    .chat-area {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      background-color: white;
-    }
-
-    .chat-messages {
-      flex: 1;
-      padding: 20px;
-      background-color: #f9fafb;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .message-bubble {
-      background-color: #1e40af;
-      color: white;
-      padding: 12px 18px;
-      border-radius: 20px;
-      border-bottom-right-radius: 6px;
-      max-width: 70%;
-      align-self: flex-end;
-      margin-bottom: 12px;
-      font-size: 14px;
-      line-height: 1.4;
+    .container{
+      width: 65%;
+      height: 90vh;
+      background-color: rgb(237, 245, 250);
+      border-left: 0.3px solid gray;
       position: relative;
+      
     }
 
-    .received-message {
-      background-color: #e5e7eb;
-      color: #111827;
-      padding: 12px 18px;
-      border-radius: 20px;
-      border-bottom-left-radius: 6px;
-      max-width: 70%;
-      align-self: flex-start;
-      margin-bottom: 12px;
-      font-size: 14px;
-      line-height: 1.4;
-      position: relative;
-    }
 
-    .message-time {
-      font-size: 11px;
-      margin-top: 4px;
-    }
-
-    .message-bubble .message-time {
-      color: rgba(255, 255, 255, 0.8);
-      text-align: left;
-    }
-
-    .received-message .message-time {
-      color: rgba(17, 24, 39, 0.6);
-      text-align: right;
-    }
-
-    .input-container {
-      padding: 16px 20px;
-      background-color: white;
-      border-top: 1px solid #e5e7eb;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .input-wrapper {
-      flex: 1;
-      position: relative;
-    }
-
-    .message-input {
+    .group{
+      background-color: #FBFBFB;
+      border-bottom: 0.3px solid gray;
+      border-left: 0.3px solid gray;
       width: 100%;
-      padding: 12px 50px 12px 16px;
-      border: 1px solid #d1d5db;
-      border-radius: 25px;
-      font-size: 14px;
-      outline: none;
-      background-color: #f9fafb;
+      height: 60px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .group img{
+      border-radius: 100%; 
+      position: absolute; 
+      right: 0px; 
+      width: 50px; 
+      height: 50px;
+    }
+    .group h3{
+      position: absolute; 
+      right: 50px;
+    }
+    .group p{
+      position: absolute; 
+      right: 50px; 
+      color: gray;
     }
 
-    .send-button {
-      position: absolute;
-      left: 8px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 36px;
-      height: 36px;
-      background-color: #1e40af;
-      border: none;
-      border-radius: 50%;
-      color: white;
+    #chatArea {
+      padding: 80px 20px 80px 20px;
+      overflow-y: auto;
+      max-height: calc(90vh - 120px);
+    }
+
+    .chat-message {
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      position: relative;
       cursor: pointer;
+    }
+    .time {
+      font-size: 10px; 
+      color: gray; 
+      margin-top: 5px;
+    }
+    .delete-btn {
+      position: absolute; 
+      top: 5px; 
+      left: 10px; 
+      color: red; 
+      font-weight: bold; 
+      cursor: pointer;
+    }
+
+    .send {
+      background-color: #FBFBFB;
+      border-top: 0.3px solid gray;
+      border-left: 0.3px solid gray;
+      width: 100%;
+      height: 60px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .send-icon {
-      font-size: 16px;
-      transform: rotate(180deg);
+    .message {
+      background-color: #FBFBFB;
+      border: 0.3px solid gray;
+      border-radius: 50px;
+      width: 85%;
+      height: 40px;
+      padding: 0 15px;
     }
-  </style>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    .send img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      rotate: 330deg;
+      cursor: pointer;
+    }
+
+    .clear-btn {
+      position: absolute;
+      bottom: 70px;
+      right: 10px;
+      background: #034E88;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 100;
+    }
+
+    .members{
+      width: 35%; 
+      position: absolute; 
+      left: 0; 
+      top: 202.5px;
+    }
+    .member{
+      width: 100%; 
+      height: 60px; 
+      border-top: 0.3px solid gray; 
+      border-bottom: 0.3px solid gray;
+    }
+    .text{
+      position: absolute; 
+      right: 10px; 
+      top: 10px;
+    }
+
+  </style>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
   <header>
     <div class="header-content">
@@ -288,92 +225,89 @@
       </div>
       <div class="header-text">
         <h1>اتحاد الجمعيات</h1>
-        <p>نحو مجتمع متعاون ومتكافل</p>
+        <p>نحو تنمية مستدامة وارتقاء بالعمل الجمعوي</p><br>
       </div>
     </div>
     <nav>
-      <a href="#about"><i class="fas fa-info-circle"></i> عن الاتحاد</a>
-      <a href="#activities"><i class="fas fa-tasks"></i> الأنشطة</a>
-      <a href="#gallery"><i class="fas fa-images"></i> معرض الصور</a>
-      <a href="chat.html"><i class="fas fa-comments"></i> الدردشة المباشرة</a>
-      <a href="sign.up.php"><i class="fas fa-user"></i> إنشاء حساب</a>
+      <a href="index.php" class="inactive"><i class="fas fa-house"></i>   الرئيسية   </a>      
+      <a href="#about" class="inactive"><i class="fas fa-info-circle"></i>    عن الاتحاد   </a>
+      <a href="#activities" class="inactive"><i class="fas fa-tasks"></i>    الأنشطة   </a>
+      <a href="#gallery" class="inactive"><i class="fas fa-images"></i>    معرض الصور  </a>
+      <a href="chat.html" class="selected"><i class="fas fa-comments"></i>    الدردشة المباشرة   </a>
+      <a href="sign.up.php" class="inactive"><i class="fas fa-user"></i>   إنشاء حساب  </a>
     </nav>
   </header>
 
   <div class="container">
-    <div class="sidebar">
-      <div class="sidebar-header">
-        <span>اتحاد الجمعيات الخيرية <small style="color: #9ae69d;">Online</small></span>
-      </div>
-      <div class="members-section">
-        <h3 class="section-title">الأعضاء</h3>
-        <div class="member-item">
-          <span>المسؤول</span>
-        </div>
-        <div class="member-item">
-          <span>جمعية ...</span>
-        </div>
-        <div class="member-item">
-          <span>جمعية ...</span>
-        </div>
-      </div>
+    <div class="group">
+      <img src="./6_image_of_efm-removebg-preview.png">
+      <h3>اتحاد الجمعيات</h3><br>
+      <p>متصل</p>
     </div>
 
-    <div class="chat-area">
-      <div class="chat-messages" id="chatMessages">
-        <!-- Messages will appear here -->
-      </div>
-      <div class="input-container">
-        <div class="input-wrapper">
-          <input type="text" class="message-input" placeholder="اكتب رسالتك..." />
-          <button class="send-button">
-            <span class="send-icon">➤</span>
-          </button>
-        </div>
-      </div>
+    <div id="chatArea"></div>
+
+    <button class="clear-btn" onclick="clearMessages()">مسح المحادثة</button>
+
+    <div class="send">
+      <input type="text" class="message" placeholder="أكتب رسالتك... ">
+      <img src="./arrow.png" class="icon">
     </div>
   </div>
 
-  <script>
-    const messageInput = document.querySelector('.message-input');
-    const sendButton = document.querySelector('.send-button');
-    const chatMessages = document.querySelector('.chat-messages');
+  <div class="members">
+    <div class="member"><p class="text"><i class="fas fa-user" style="color: #215781; font-size: 30px;"></i> الاسم </p></div>
+  </div>
 
-    function getTime() {
-      const now = new Date();
-      return now.toLocaleTimeString('ar-SA', {
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: true
+  <script>
+    function loadMessages() {
+      let messages = JSON.parse(localStorage.getItem("messages")) || [];
+      const chatArea = document.getElementById("chatArea");
+      chatArea.innerHTML = "";
+      messages.forEach((msg, index) => {
+        const div = document.createElement("div");
+        div.className = "chat-message";
+        div.innerHTML = `
+          <span class="delete-btn" onclick="deleteMessage(${index})">&times;</span>
+          ${msg.text}
+          <div class="time">${msg.time}</div>
+        `;
+        chatArea.appendChild(div);
       });
     }
 
-    function addMessage(content, isUser = false) {
-      const messageDiv = document.createElement('div');
-      const time = `<div class="message-time">${getTime()}</div>`;
-      messageDiv.className = isUser ? 'message-bubble' : 'received-message';
-      messageDiv.innerHTML = `${content}${time}`;
-      chatMessages.appendChild(messageDiv);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
+    function addMessage() {
+      const msgInput = document.querySelector(".message");
+      const message = msgInput.value.trim();
+      if (message === "") return;
+
+      let messages = JSON.parse(localStorage.getItem("messages")) || [];
+      let now = new Date();
+      let time = now.toLocaleDateString() + " " + now.toLocaleTimeString();
+      messages.push({ text: message, time: time });
+      localStorage.setItem("messages", JSON.stringify(messages));
+
+      msgInput.value = "";
+      loadMessages();
     }
 
-    function sendMessage() {
-      const message = messageInput.value.trim();
-      if (message) {
-        addMessage(message, true);
-        messageInput.value = '';
-        setTimeout(() => {
-          addMessage('مرحباً شكراً لرسالتك معنا. سيتم الرد عليك قريباً.');
-        }, 1000);
+    function deleteMessage(index) {
+      let messages = JSON.parse(localStorage.getItem("messages")) || [];
+      messages.splice(index, 1);
+      localStorage.setItem("messages", JSON.stringify(messages));
+      loadMessages();
+    }
+
+    function clearMessages() {
+      if (confirm("هل أنت متأكد أنك تريد مسح جميع الرسائل؟")) {
+        localStorage.removeItem("messages");
+        loadMessages();
       }
     }
 
-    sendButton.addEventListener('click', sendMessage);
-    messageInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        sendMessage();
-      }
-    });
+    document.querySelector(".icon").addEventListener("click", addMessage);
+    window.onload = loadMessages;
   </script>
+
 </body>
 </html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>رفع صورة مع وصف مؤقت</title>
+  <style>
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f9f9;
+  padding: 20px;
+  direction: rtl;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
+  gap: 15px;
+}
+
+#gallery img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+#gallery img:hover {
+  transform: scale(1.1);
+}
+
+form {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 10px;
+}
+
+input[type="text"], input[type="file"] {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #097c22;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #065a17;
+}
+
+  </style>
+</head>
+<body>
+  <h2>رفع صورة مع وصف</h2>
+
+  <input type="file" id="imageInput" accept="image/*" />
+  <br /><br />
+  <input type="text" id="descInput" placeholder="أدخل وصف الصورة" />
+  <br /><br />
+  <button id="addBtn">أضف الصورة للمعرض</button>
+
+  <div id="gallery"></div>
+
+  <script>
+    const imageInput = document.getElementById('imageInput');
+    const descInput = document.getElementById('descInput');
+    const addBtn = document.getElementById('addBtn');
+    const gallery = document.getElementById('gallery');
+
+    addBtn.addEventListener('click', () => {
+      const file = imageInput.files[0];
+      const desc = descInput.value.trim();
+
+      if (!file) {
+        alert('الرجاء اختيار صورة');
+        return;
+      }
+      if (!desc) {
+        alert('الرجاء إدخال وصف للصورة');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const div = document.createElement('div');
+        div.className = 'gallery-item';
+
+        const img = document.createElement('img');
+        img.src = e.target.result;
+
+        const p = document.createElement('p');
+        p.textContent = desc;
+
+        div.appendChild(img);
+        div.appendChild(p);
+
+        gallery.appendChild(div);
+
+        imageInput.value = '';
+        descInput.value = '';
+      };
+
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>
